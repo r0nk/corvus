@@ -3,7 +3,7 @@ Strand mutate(Strand parentStrand){
 	memcpy(strand,parentStrand,MAX_TEXT_SPACE);
 	int i,j;
 	for(i=0;i<MAX_TEXT_SPACE;i++){
-		if((rand()%100)<2){//2 percent chance of mutation
+		if((rand()%100)<1){//1 percent chance of mutation
 			j=rand()%8;
 			switch(j){
 				case 0:
@@ -50,7 +50,6 @@ BirdArray generateBirds(){
 	Strand def = malloc(MAX_TEXT_SPACE);
 	for(i=0;i<MAX_TEXT_SPACE;i++){
 		def[i]='<';
-		def[i++]='>';
 	}
 	for(i=0;i<MAX_BIRDS;i++){
 		birdArray.birds[i]=createBird(def);
@@ -70,7 +69,7 @@ int updateBird(Bird * bird){
 	int j;
 	if((bird->fat)>0){
 		bird->fat--;
-		j=step(&(bird->vm));
+		j=step(&(bird->vm),bird->x);
 		if(j!=-1)
 			return j;
 	}else

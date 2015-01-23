@@ -33,7 +33,11 @@ byte * jumpDestination(VirtualMachine vm){
 	}
 	return destination;
 }
-int step(VirtualMachine * vm){//do one instruction
+int step(VirtualMachine * vm,int x){//do one instruction
+	if((vm->pc)>=(vm->text+MAX_TEXT_SPACE) || (vm->pc)<=vm->text)
+		vm->pc=vm->text;
+	if((vm->dc)>=(vm->data+MAX_DATA_SPACE) || (vm->dc)<=vm->data)
+		vm->dc=vm->data + (MAX_DATA_SPACE/2);
 	switch(*vm->pc){
 		case '>':
 			vm->dc++;
@@ -48,20 +52,21 @@ int step(VirtualMachine * vm){//do one instruction
 			*vm->dc--;
 			break;
 		case '.':
-			//*vm->pc++;
-			//return *vm->dc;
-			break;
+			*vm->pc++;
+			return *vm->dc;
 		case ',':
-			//*vm->dc=(byte)x;
+			*vm->dc=(byte)x;
 			break;
 		case '[':
+			if(*vm->dc)
+				break;
 		case ']':
+			if(!*vm->dc)
+				break;
 			vm->pc=jumpDestination(*vm);
 		default:
 			break;
 	}
-	if((vm->pc)>=(vm->text+MAX_TEXT_SPACE) || (vm->pc)<=vm->text)
-		vm->pc=vm->text;
 	vm->pc++;
 	return -1;
 }

@@ -1,7 +1,7 @@
 #include "types.h"
 
-#define MAX_TEXT_SPACE 256
-#define MAX_DATA_SPACE 256
+#define MAX_TEXT_SPACE 80
+#define MAX_DATA_SPACE 1028
 
 typedef struct{
 	byte * pc;//program counter
