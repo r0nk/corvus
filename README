@@ -1,0 +1,10 @@
+Corvus is an experiement in genetic programming. 
+
+It creates a number of birds (BF virtual machines), each of which try to find food (f(x)), for a given problem (f). The birds reproduce upon finding enough 
+food, or starve after trying too long.
+
+VIRTUAL MACHINE:
+Corvus uses a modified version of BF, in that input is always given by the x for a function.
+
+So if I were to ',' for f(4), then ',' would store 4;
+
