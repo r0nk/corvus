@@ -8,7 +8,7 @@
 
 byte targetFunction(byte x){
 	/*this is the function the birds try to reach*/
-	return x+2;
+	return x;
 }
 int main(){
 	srand(time(NULL));//yay for !random
