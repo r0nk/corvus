@@ -2,7 +2,7 @@ Corvus is an experiement in genetic programming.
 
 ![screenshot](http://i.imgur.com/nvtkkkG.gif)
 
-It creates a number of birds (BF virtual machines), each of which try to find food (f(x)), for a given problem (f). The birds reproduce upon finding enough food, or starve after trying too long.
+It creates a number of birds (BF virtual machines), each of which try to find food (f(x)), in a given environment (f). The birds reproduce upon finding enough food, or starve after trying too long.
 
 To modify the function the corvus birds are trying to find, modify targetFunction in main.
 
