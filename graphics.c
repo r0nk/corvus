@@ -24,7 +24,7 @@ void drawBirds(BirdArray birdArray){
 void redraw(Engine engine){
 	erase();
 	drawBirds(engine.birdArray);
-	mvprintw(LINES,0,"engine.iterations:%i",engine.iterations);
+	mvprintw(LINES,0,"engine.iterations:%llu",engine.iterations);
 	refresh();
 //	getch(); //uncomment me if you wish to single step
 }
