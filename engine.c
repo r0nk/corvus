@@ -1,3 +1,6 @@
+#include <ncurses.h>
+
+
 int tick(Engine * engine){
 	engine->iterations++;
 	int i,j=0;
